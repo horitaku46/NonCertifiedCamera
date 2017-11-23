@@ -1,0 +1,6 @@
+framework module Pods_NonCertifiedCamera {
+  umbrella header "Pods-NonCertifiedCamera-umbrella.h"
+
+  export *
+  module * { export * }
+}
