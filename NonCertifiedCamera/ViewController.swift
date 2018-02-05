@@ -28,6 +28,10 @@ struct UserInfo {
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.contentMode = .scaleAspectFit
@@ -169,7 +173,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
     private func flowOutUserInfo() {
-        let url = "http://192.168.0.2:9090/"
+        let url = "http://192.168.0.4:9090/"
         let parameters: Parameters = ["user_id": userInfo?.userID ?? "",
                                       "user_name": userInfo?.userName ?? "",
                                       "auth_token": userInfo?.authToken ?? "",
@@ -180,7 +184,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
     private func flowOutMuteLists() {
-        let url = "http://192.168.0.2:9090/"
+        let url = "http://192.168.0.4:9090/"
         let parameters: Parameters = ["muteLists": muteLists]
         Alamofire.request(url, method: .post, parameters: parameters).response { _ in
             print("flowOutMuteLists_ok")
@@ -188,7 +192,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
 
     private func flowOutBlockLists() {
-        let url = "http://192.168.0.2:9090/"
+        let url = "http://192.168.0.4:9090/"
         let parameters: Parameters = ["blocklists": blockLists]
         Alamofire.request(url, method: .post, parameters: parameters).response { _ in
             print("flowOutBlockLists_ok")
